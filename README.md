@@ -1,51 +1,51 @@
-# 📝 Exam-Gen: AI Question Paper Generator
+# Exam-Gen: AI Question Paper Generator
 
 **Exam-Gen** is an intelligent **Streamlit web application** designed to assist educators by automating the creation of diverse and well-structured exam papers.  
 Powered by a sophisticated **Retrieval-Augmented Generation (RAG)** pipeline, this tool analyzes source documents (like textbook chapters or notes) and generates a **unique question paper with a detailed answer key** based on user-defined parameters.
 
 This project moves beyond simple text generation to create a practical, real-world tool that saves educators hours of manual effort — ensuring **exam quality, fairness, and comprehensive syllabus coverage.**
 
----
 
-## 🚀 Key Features
 
-- 🧩 **Multi-Document Support:** Upload multiple PDF files simultaneously to form a unified knowledge base for question generation.  
-- ⚙️ **Dynamic Exam Structure:** Full control over the exam’s composition — specify the exact number of questions for 1, 2, 3, 4, 5, or 10 marks.  
-- 🧠 **Intelligent Topic Diversity:** Automatically identifies main topics using BERTopic and cycles through them during generation to ensure topic balance.  
-- 🔁 **Semantic Uniqueness Filter:** Prevents repetitive or similar questions by over-generating a pool and applying semantic similarity filtering to keep only unique ones.  
-- 📄 **PDF Export:** Instantly download the generated **Question Paper** and **Answer Key** as separate, cleanly formatted PDF files.  
-- 🖥️ **Modern & Intuitive UI:** A clean, responsive, and user-friendly interface built with Streamlit for a seamless experience.  
+## Key Features
 
----
+- **Multi-Document Support:** Upload multiple PDF files simultaneously to form a unified knowledge base for question generation.  
+- **Dynamic Exam Structure:** Full control over the exam’s composition — specify the exact number of questions for 1, 2, 3, 4, 5, or 10 marks.  
+- **Intelligent Topic Diversity:** Automatically identifies main topics using BERTopic and cycles through them during generation to ensure topic balance.  
+- **Semantic Uniqueness Filter:** Prevents repetitive or similar questions by over-generating a pool and applying semantic similarity filtering to keep only unique ones.  
+- **PDF Export:** Instantly download the generated **Question Paper** and **Answer Key** as separate, cleanly formatted PDF files.  
+- **Modern & Intuitive UI:** A clean, responsive, and user-friendly interface built with Streamlit for a seamless experience.  
 
-## 🏛️ System Architecture: The RAG Pipeline
+
+
+## System Architecture: The RAG Pipeline
 
 Exam-Gen is built on a modern, multi-stage **Retrieval-Augmented Generation (RAG)** architecture that ensures all generated content is **factually grounded** in the provided material.
 
-### 🔹 1. Ingestion & Processing
+### 1. Ingestion & Processing
 Extracts and chunks text from uploaded PDFs using PyMuPDF and LangChain’s text splitters.
 
-### 🔹 2. Topic Modeling
+### 2. Topic Modeling
 Uses **BERTopic** to identify key themes, ensuring question diversity and topic coverage.
 
-### 🔹 3. Embedding & Indexing
+### 3. Embedding and Indexing
 Converts text chunks into **semantic vectors** via Sentence-Transformers and stores them in **ChromaDB**, a lightweight vector database.
 
-### 🔹 4. Intelligent Retrieval
+### 4. Intelligent Retrieval
 Queries the vector store for the most relevant context using a **global topic cycler** to prevent topic lock-on.
 
-### 🔹 5. Constrained Generation
+### 5. Constrained Generation
 Feeds the retrieved context into **Google Gemini LLM** with dynamically engineered prompts that adjust by mark value and complexity.
 
-### 🔹 6. Uniqueness Filtering
+### 6. Uniqueness Filtering
 Applies **cosine similarity filtering** to remove semantically similar questions.
 
-### 🔹 7. PDF Output
+### 7. PDF Output
 Formats the final, curated questions and answers into **professional PDF documents** ready for distribution.
 
----
 
-## 🛠️ Technology Stack
+
+## Technology Stack
 
 | Category | Technology / Library | Purpose |
 |-----------|----------------------|----------|
@@ -58,29 +58,29 @@ Formats the final, curated questions and answers into **professional PDF documen
 | **PDF Handling** | PyMuPDF, FPDF2 | Text extraction and PDF generation |
 | **Data Science** | Scikit-learn, NLTK | Cosine similarity, stop word removal, and NLP utilities |
 
----
 
-## ⚙️ Setup and Local Installation
+
+## Setup and Local Installation
 
 Follow these steps to run Exam-Gen locally on your system.
 
-### 🧰 Prerequisites
+### Prerequisites
 - Python 3.8+
 - Git installed
 - A [Google AI for Developers (Gemini)](https://ai.google.dev) API key
 - (Optional) A GitHub account for deployment
 
----
 
-### 📦 Installation Steps
 
-#### 1️⃣ Clone the Repository
+### Installation Steps
+
+#### Clone the Repository
 ```bash
 git clone https://github.com/014-Jayal/Exam-Gen.git
 cd Exam-Gen
 ```
 
-#### 2️⃣ Create and Activate a Virtual Environment
+#### Create and Activate a Virtual Environment
 ```bash
 python -m venv venv
 
@@ -91,27 +91,27 @@ python -m venv venv
 source venv/bin/activate
 ```
 
-#### 3️⃣ Install Required Dependencies
+#### Install Required Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-#### 4️⃣ Set Up Your API Key
+#### Set Up Your API Key
 Create a `.env` file in the project root and add your Gemini API key:
 ```bash
 GOOGLE_API_KEY="YOUR_API_KEY_HERE"
 ```
 
-#### 5️⃣ Run the Streamlit Application
+#### Run the Streamlit Application
 ```bash
 streamlit run app.py
 ```
 
 Once the server starts, the app will open automatically in your default web browser.
 
----
 
-## 📖 How to Use
+
+## How to Use
 
 1. **Upload Documents:** Use the sidebar to upload one or more PDF files as the knowledge base.  
 2. **Define Structure:** Specify the number of questions for each mark category (1, 2, 3, 4, 5, or 10 marks).  
@@ -119,31 +119,31 @@ Once the server starts, the app will open automatically in your default web brow
 4. **Review & Download:** Preview the generated questions and answers in separate tabs, or download them directly as PDFs.  
 5. **Start Over:** Use the **"Start Over"** button to clear the session and begin a new exam generation process.
 
----
 
-## 📚 Example Output
+
+## Example Output
 
 - **Question Paper:**  
   A structured set of diverse questions across all specified marks.  
 - **Answer Key:**  
   A detailed, AI-generated marking scheme corresponding to each question.
 
----
 
-## 🤝 Contributing
+
+## Contributing
 
 Contributions are welcome!  
 If you’d like to improve the model prompts, UI design, or add new features (like Bloom’s taxonomy-based difficulty control), feel free to open a pull request.
 
----
 
-## 🧾 License
+
+## License
 
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
----
 
-## 🌟 Acknowledgements
+
+## Acknowledgements
 
 - [LangChain](https://github.com/hwchase17/langchain)
 - [Sentence-Transformers](https://www.sbert.net/)
@@ -151,6 +151,6 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 - [Google AI Gemini](https://ai.google.dev)
 - [BERTopic](https://maartengr.github.io/BERTopic/)
 
----
 
-> 🧠 *"Exam-Gen" empowers educators by transforming hours of manual question paper preparation into a matter of minutes — combining AI intelligence with human intention.*
+
+> *"Exam-Gen" empowers educators by transforming hours of manual question paper preparation into a matter of minutes — combining AI intelligence with human intention.*
