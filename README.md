@@ -5,8 +5,6 @@ Powered by a sophisticated **Retrieval-Augmented Generation (RAG)** pipeline, th
 
 This project moves beyond simple text generation to create a practical, real-world tool that saves educators hours of manual effort — ensuring **exam quality, fairness, and comprehensive syllabus coverage.**
 
-
-
 ## Key Features
 
 - **Multi-Document Support:** Upload multiple PDF files simultaneously to form a unified knowledge base for question generation.  
